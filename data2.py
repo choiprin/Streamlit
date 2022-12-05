@@ -38,3 +38,5 @@ dust = dataframe['dust']
 st.write('# 파이썬 테스트') #total
 st.bar_chart(total)
 st.bar_chart(dust)
+st.line_chart(total)
+st.line_chart(dust)
