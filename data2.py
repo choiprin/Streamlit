@@ -29,10 +29,10 @@ body = json_ob['response']['body']['items']
 # # Dataframe으로 만들기
 dataframe = pd.DataFrame(body)
 # # key 값 int으로 만들기
-dataframe['total'] = pd.to_numeric(dataframe['khaiValue'])
+dataframe['test'] = pd.to_numeric(dataframe['khaiValue'])
 dataframe['dust'] = pd.to_numeric(dataframe['pm10Value'])
 time = dataframe['dataTime']
-total = dataframe['total']
+total = dataframe['test']
 dust = dataframe['dust']
 # # 바차트 올리기
 st.write('# 파이썬 테스트') #total
