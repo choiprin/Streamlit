@@ -35,6 +35,6 @@ time = dataframe['dataTime']
 total = dataframe['total']
 dust = dataframe['dust']
 # # 바차트 올리기
-st.write(total)
+st.write('# 파이썬 테스트') #total
 st.bar_chart(total)
 st.bar_chart(dust)
