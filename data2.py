@@ -33,7 +33,7 @@ dataframe['total'] = pd.to_numeric(dataframe['khaiValue'])
 dataframe['dust'] = pd.to_numeric(dataframe['pm10Value'])
 time = dataframe['dataTime']
 total = dataframe['total']
-dust = dataframe['dust']
+dust = dataframe['test']
 # # 바차트 올리기
 st.write('# 파이썬 테스트') #total
 st.bar_chart(total)
