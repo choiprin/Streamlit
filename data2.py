@@ -21,5 +21,7 @@ figure = data['환경 수치']
 fineDust = data['미세먼지']
 
 st.write('# 파이썬')
+st.line_chart(figure)
+st.line_chart(fineDust)
 st.bar_chart(figure)
 st.bar_chart(fineDust)
