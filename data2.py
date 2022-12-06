@@ -46,10 +46,8 @@ so2 = data['아황산가스']
 o3 = data['오존']
 no2 = data['이산화질소']
 
-st.write('# IoT 응용 기말과제')
+st.write('# 일산 주엽동 대기질')
 st.write('***')
-st.write('#### 일산 주엽동의 날씨 데이터')
-
 st.write('#### 선 그래프')
 st.line_chart(figure)
 st.line_chart(fineDust)
