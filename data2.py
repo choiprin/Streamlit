@@ -12,6 +12,25 @@ json_ob = json.loads(rawData)
 jsonData = json_ob['response']['body']['items']
 data = pandas.DataFrame(jsonData)
 
+for i in range(len(data['khaiValue'])):
+    if data['khaiValue'][i] == '-':
+        data['khaiValue'][i] = '0'
+for i in range(len(data['pm10Value'])):
+    if data['pm10Value'][i] == '-':
+        data['pm10Value'][i] = '0'      
+for i in range(len(data['coValue'])):
+    if data['coValue'][i] == '-':
+        data['coValue'][i] = '0'  
+for i in range(len(data['so2Value'])):
+    if data['so2Value'][i] == '-':
+        data['so2Value'][i] = '0'   
+for i in range(len(data['o3Value'])):
+    if data['o3Value'][i] == '-':
+        data['o3Value'][i] = '0'  
+for i in range(len(data['no2Value'])):
+    if data['no2Value'][i] == '-':
+        data['no2Value'][i] = '0'  
+
 data['환경 수치'] = pandas.to_numeric(data['khaiValue'])
 data['미세먼지'] = pandas.to_numeric(data['pm10Value'])
 data['일산화탄소'] = pandas.to_numeric(data['coValue'])
