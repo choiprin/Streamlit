@@ -1,4 +1,3 @@
-#라이브러리 import
 import pandas
 import requests
 import json
@@ -15,15 +14,19 @@ data = pandas.DataFrame(jsonData)
 
 data['환경 수치'] = pandas.to_numeric(data['khaiValue'])
 data['미세먼지'] = pandas.to_numeric(data['pm10Value'])
+data['일산화탄소'] = pandas.to_numeric(data['coValue'])
 
 time = data['dataTime']
 figure = data['환경 수치']
 fineDust = data['미세먼지']
+co = data['일산화탄소']
 
 st.write('# IoT 응용 기말과제')
 st.write('***')
 st.write('#### 일산 주엽동의 날씨 데이터')
 st.line_chart(figure)
 st.line_chart(fineDust)
+st.line_chart(co)
 st.bar_chart(figure)
 st.bar_chart(fineDust)
+st.bar_chart(co)
