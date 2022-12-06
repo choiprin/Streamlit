@@ -1,42 +1,25 @@
 #라이브러리 import
-import requests
-import pprint
-import json
 import pandas as pd
+import requests
+import json
 import streamlit as st
-import altair as alt
-file_path = "C:\\Users\hojin\Desktop\gwajea\python\gimal\simple.txt"
 url = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?stationName=주엽동&dataTerm=DAILY&pageNo=1&numOfRows=100&returnType=json&serviceKey=KQRR%2BJLPRITcRv6CvRB1QUxmDQ%2BKmcKWMjK1A19g%2BiHLEbXTpqjWmut5pwHfKkH6O7KfqLSXxEmrLt6Ctooliw%3D%3D"
 
-response = requests.get(url)
+geturl = requests.get(url)
+rawData = geturl.text
 
-contents = response.text
+json_ob = json.loads(rawData)
 
-# 데이터 결과값 예쁘게 출력해주는 코드
-pp = pprint.PrettyPrinter(indent=4)
-# print(pp.pprint(contents))
+jsonData = json_ob['response']['body']['items']
+data = pd.DataFrame(jsonData)
 
-## json을 DataFrame으로 변환하기 ##
+data['환경 수치'] = pd.to_numeric(data['khaiValue'])
+data['미세먼지'] = pd.to_numeric(data['pm10Value'])
 
-#문자열을 json으로 변경
-json_ob = json.loads(contents)
-# print(type(json_ob)) #json타입 확인
+time = data['dataTime']
+figure = data['환경 수치']
+fineDust = data['미세먼지']
 
-# 필요한 내용만 꺼내기
-body = json_ob['response']['body']['items']
-# print(body)
-
-# # Dataframe으로 만들기
-dataframe = pd.DataFrame(body)
-# # key 값 int으로 만들기
-dataframe['test'] = pd.to_numeric(dataframe['khaiValue'])
-dataframe['dust'] = pd.to_numeric(dataframe['pm10Value'])
-time = dataframe['dataTime']
-total = dataframe['test']
-dust = dataframe['dust']
-# # 바차트 올리기
-st.write('# 파이썬 테스트') #total
-st.bar_chart(total)
-st.bar_chart(dust)
-st.line_chart(total)
-st.line_chart(dust)
+st.write('# 파이썬')
+st.bar_chart(figure)
+st.bar_chart(fineDust)
