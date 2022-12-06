@@ -20,9 +20,9 @@ time = data['dataTime']
 figure = data['환경 수치']
 fineDust = data['미세먼지']
 
-st.write('# 날씨 데이터')
+st.write('# IoT 기말과제')
 st.write('***')
-st.write('##__일산 주엽동의 __')
+st.write('## 일산 주엽동의 날씨 데이터')
 st.line_chart(figure)
 st.line_chart(fineDust)
 st.bar_chart(figure)
