@@ -15,21 +15,27 @@ data = pandas.DataFrame(jsonData)
 data['환경 수치'] = pandas.to_numeric(data['khaiValue'])
 data['미세먼지'] = pandas.to_numeric(data['pm10Value'])
 data['일산화탄소'] = pandas.to_numeric(data['coValue'])
+data['아황산가스'] = pandas.to_numeric(data['so2Value'])
+data['오존'] = pandas.to_numeric(data['o3Value'])
 
 time = data['dataTime']
 figure = data['환경 수치']
 fineDust = data['미세먼지']
 co = data['일산화탄소']
+so2 = data['아황산가스']
+o3 = data['오존']
 
 st.write('# IoT 응용 기말과제')
 st.write('***')
 st.write('#### 일산 주엽동의 날씨 데이터')
-st.write('#### 선 그래프')
 st.line_chart(figure)
 st.line_chart(fineDust)
 st.line_chart(co)
+st.line_chart(so2)
+st.line_chart(o3)
 st.write('***')
-st.write('#### 막대 그래프')
 st.bar_chart(figure)
 st.bar_chart(fineDust)
 st.bar_chart(co)
+st.bar_chart(so2)
+st.bar_chart(o3)
