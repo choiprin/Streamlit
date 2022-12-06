@@ -1,5 +1,5 @@
 #라이브러리 import
-import pandas as pd
+import pandas
 import requests
 import json
 import streamlit as st
@@ -11,10 +11,10 @@ rawData = geturl.text
 json_ob = json.loads(rawData)
 
 jsonData = json_ob['response']['body']['items']
-data = pd.DataFrame(jsonData)
+data = pandas.DataFrame(jsonData)
 
-data['환경 수치'] = pd.to_numeric(data['khaiValue'])
-data['미세먼지'] = pd.to_numeric(data['pm10Value'])
+data['환경 수치'] = pandas.to_numeric(data['khaiValue'])
+data['미세먼지'] = pandas.to_numeric(data['pm10Value'])
 
 time = data['dataTime']
 figure = data['환경 수치']
