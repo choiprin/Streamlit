@@ -20,7 +20,9 @@ time = data['dataTime']
 figure = data['환경 수치']
 fineDust = data['미세먼지']
 
-st.write('# 파이썬')
+st.write('# 날씨 데이터')
+st.write('***')
+st.write('__test__')
 st.line_chart(figure)
 st.line_chart(fineDust)
 st.bar_chart(figure)
